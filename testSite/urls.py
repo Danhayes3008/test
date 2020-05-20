@@ -21,4 +21,5 @@ from home.views import index
 urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
+    path(r'^media/(?P<path>.*)$', static.serve),
 ]
