@@ -1,0 +1,66 @@
+<!--These are notes on how to create a django site. I have made these notes to aid myself in future 
+    site i might make-->
+
+ add to line 27 --> DEBUG = True
+
+
+step one:
+
+.This section will have notes for starting the project so that mistakes dont get made
+
+first create a new folder ( what ever location you choose to put it).
+open it up in the workspace and create the enviroment to work in unless there is a built in enviroment.
+
+python -m venv (.eviromentname) <--- creates the enviroment
+
+then activate the enviroment and check there are no requirements installed into it with:
+
+pip freeze
+
+if no requirements are there then it means you have a clean enviroment to work in.
+Start the project by installing the django requirement (what ever version you are working with) then add the
+requirements installed to a requirements.txt file with:
+
+pip freeze > requirements.txt
+
+next lets start the project by doing:
+
+django-admin startproject (project name) . <--- this dot is needed to create teh setting section of the project
+and create the relevent files for the site such as a manage.py and db.sqlite3
+
+next you want to create the env.py file to hold all the sensitive files such as keys and passwords
+
+next remove the secet key from the settings and replace with os.environ.get("secret_key")
+
+next just incase you need it for the project you need to create a super user to access the admin side of a
+django site. to do this enter into the command terminal:
+
+python manage.py makemigrations
+
+then:
+python manage.py migrate
+
+then:
+python manage.py createsuperuser
+
+then follow the instructions provided in the terminal.
+
+next lets create the git repository to start pushing to github.
+Afer this is done we need to start creating the index page so create a new app and call it something relevent.
+django-admin startapp (app name). Add the app name to the installed apps part of the settings.py.
+
+github-cheat:
+
+…or create a new repository on the command line
+echo "# portfolio-site" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Danhayes3008/portfolio-site.git
+git push -u origin master
+                
+…or push an existing repository from the command line
+git remote add origin https://github.com/Danhayes3008/portfolio-site.git
+git push -u origin master
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
